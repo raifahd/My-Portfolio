@@ -16,7 +16,7 @@ import {
   ExternalLink,
   Github,
   Linkedin,
-  Twitter,
+  Instagram,
   Mail,
   ArrowUp,
   ChevronDown,
@@ -35,8 +35,8 @@ const skills = [
     icon: Code,
     gradient: "from-violet-500 to-purple-600",
     items: [
-      { name: "HTML & CSS", level: 70, icon: Code },
-      { name: "JavaScript", level: 55, icon: Globe },
+      { name: "Model Training & ML", level: 70, icon: Code },
+      { name: "HTML, CSS, JavaScript", level: 85, icon: Globe },
       { name: "Python", level: 50, icon: Database },
       { name: "React Basics", level: 45, icon: Smartphone },
     ],
@@ -57,8 +57,8 @@ const skills = [
     gradient: "from-cyan-500 to-blue-600",
     items: [
       { name: "Video Editing", level: 50, icon: Video },
-      { name: "Photography", level: 55, icon: Camera },
-      { name: "Music Production", level: 40, icon: Music },
+      { name: "Photo Editing", level: 55, icon: Camera },
+      // { name: "Music Production", level: 40, icon: Music },
       { name: "Technical Writing", level: 60, icon: FileText },
     ],
   },
@@ -89,38 +89,38 @@ const projects = [
     featured: true,
     gradient: "from-pink-500 to-rose-500",
   },
-  {
-    id: "task-manager",
-    title: "Task Manager",
-    description: "A basic todo application with local storage persistence.",
-    tags: ["JavaScript", "HTML", "CSS"],
-    featured: false,
-    gradient: "from-orange-500 to-amber-500",
-  },
-  {
-    id: "gallery",
-    title: "Photo Gallery",
-    description: "Responsive image gallery with lightbox functionality.",
-    tags: ["CSS Grid", "JavaScript"],
-    featured: false,
-    gradient: "from-emerald-500 to-teal-500",
-  },
-  {
-    id: "landing",
-    title: "Landing Page",
-    description: "Modern landing page design for a fictional startup.",
-    tags: ["HTML", "CSS", "Figma"],
-    featured: true,
-    gradient: "from-purple-600 to-pink-600",
-  },
+  // {
+  //   id: "task-manager",
+  //   title: "Task Manager",
+  //   description: "A basic todo application with local storage persistence.",
+  //   tags: ["JavaScript", "HTML", "CSS"],
+  //   featured: false,
+  //   gradient: "from-orange-500 to-amber-500",
+  // },
+  // {
+  //   id: "gallery",
+  //   title: "Photo Gallery",
+  //   description: "Responsive image gallery with lightbox functionality.",
+  //   tags: ["CSS Grid", "JavaScript"],
+  //   featured: false,
+  //   gradient: "from-emerald-500 to-teal-500",
+  // },
+  // {
+  //   id: "landing",
+  //   title: "Landing Page",
+  //   description: "Modern landing page design for a fictional startup.",
+  //   tags: ["HTML", "CSS", "Figma"],
+  //   featured: true,
+  //   gradient: "from-purple-600 to-pink-600",
+  // },
 ];
 
 const interests = [
   { name: "Reading", icon: BookOpen, color: "text-violet-500" },
   { name: "Gaming", icon: Gamepad2, color: "text-pink-500" },
-  { name: "Photography", icon: Camera, color: "text-cyan-500" },
-  { name: "Music", icon: Music, color: "text-orange-500" },
-  { name: "Coffee", icon: Coffee, color: "text-amber-500" },
+  // { name: "Photography", icon: Camera, color: "text-cyan-500" },
+  // { name: "Music", icon: Music, color: "text-orange-500" },
+  // { name: "Coffee", icon: Coffee, color: "text-amber-500" },
   { name: "Learning", icon: Code, color: "text-emerald-500" },
 ];
 
@@ -214,7 +214,7 @@ export default function Home() {
                     className="font-serif text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight"
                     data-testid="text-name"
                   >
-                    <span className="gradient-text">Alex Chen</span>
+                    <span className="gradient-text">Rai Fahd</span>
                   </h1>
                   <p 
                     className="text-2xl md:text-4xl font-light text-foreground/80"
@@ -308,9 +308,9 @@ export default function Home() {
               <div className="space-y-6">
                 <Card className="p-8 glass border-white/10 dark:border-white/5">
                   <p className="text-lg leading-relaxed text-foreground/90" data-testid="text-about-bio-1">
-                    I'm a second-year university student pursuing a degree in Computer Science. 
+                    I'm a second-year university student pursuing a degree in Data Science. 
                     My journey into technology started with curiosity about how websites work, 
-                    and it has since grown into a passion for creating digital experiences.
+                    and it has since grown into a passion for creating digital experiences and also making real-life models.
                   </p>
                 </Card>
                 <Card className="p-8 glass border-white/10 dark:border-white/5">
@@ -329,12 +329,12 @@ export default function Home() {
                   </h3>
                   <div className="space-y-4" data-testid="list-education">
                     <Card className="p-4 glass border-white/10 dark:border-white/5 border-l-4 border-l-violet-500">
-                      <p className="font-medium" data-testid="text-education-degree">B.Sc. Computer Science</p>
-                      <p className="text-muted-foreground text-sm">State University - 2023 - Present</p>
+                      <p className="font-medium" data-testid="text-education-degree">B.S. Data Science</p>
+                      <p className="text-muted-foreground text-sm">Fast NU Lahore - 2024 - Present</p>
                     </Card>
                     <Card className="p-4 glass border-white/10 dark:border-white/5 border-l-4 border-l-cyan-500">
-                      <p className="font-medium" data-testid="text-education-highschool">High School Diploma</p>
-                      <p className="text-muted-foreground text-sm">Central High School - 2019 - 2023</p>
+                      <p className="font-medium" data-testid="text-education-highschool">A-Levels</p>
+                      <p className="text-muted-foreground text-sm">The City School - 2022 - 2024</p>
                     </Card>
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export default function Home() {
                     <Badge className="bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border-cyan-500/30">React Native</Badge>
                     <Badge className="bg-pink-500/20 text-pink-600 dark:text-pink-400 border-pink-500/30">Node.js</Badge>
                     <Badge className="bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/30">UI/UX Design</Badge>
-                    <Badge className="bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30">Data Structures</Badge>
+                    <Badge className="bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30">Machine Learning</Badge>
                   </div>
                 </Card>
               </div>
@@ -528,11 +528,11 @@ export default function Home() {
               I'm always open to new opportunities, collaborations, or just a friendly chat
             </p>
             <a
-              href="mailto:hello@alexchen.dev"
+              href="mailto:fahd.w871@gmail.com"
               className="inline-block font-serif text-3xl md:text-4xl font-bold gradient-text hover:opacity-80 transition-opacity mb-12"
               data-testid="link-email"
             >
-              hello@alexchen.dev
+              fahd.w871@gmail.com
             </a>
             <div className="flex items-center justify-center gap-4 mb-8" data-testid="social-links">
               <Button
@@ -542,7 +542,7 @@ export default function Home() {
                 data-testid="button-github"
               >
                 <a
-                  href="https://github.com"
+                  href="https://github.com/raifahd"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -557,7 +557,7 @@ export default function Home() {
                 data-testid="button-linkedin"
               >
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/rai-fahd-sultan-23074936b/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -569,25 +569,25 @@ export default function Home() {
                 size="icon"
                 className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 text-white border-0 glow-pink"
                 asChild
-                data-testid="button-twitter"
+                data-testid="button-instagram"
               >
                 <a
-                  href="https://twitter.com"
+                  href="https://www.instagram.com/raifahd._/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Twitter"
+                  aria-label="Instagram"
                 >
-                  <Twitter className="w-6 h-6" />
+                  <Instagram className="w-6 h-6" />
                 </a>
               </Button>
               <Button
                 size="icon"
-                className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 text-white border-0"
+                className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 text-white border-0"
                 asChild
                 data-testid="button-mail"
               >
                 <a
-                  href="mailto:hello@alexchen.dev"
+                  href="mailto:fahd.w871@gmail.com"
                   aria-label="Email"
                 >
                   <Mail className="w-6 h-6" />
@@ -607,7 +607,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-              © {new Date().getFullYear()} <span className="gradient-text font-semibold">Alex Chen</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="gradient-text font-semibold">Rai Fahd</span>. All rights reserved.
             </p>
             <div className="flex items-center gap-2 flex-wrap justify-center">
               <Button
