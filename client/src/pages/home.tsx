@@ -24,11 +24,16 @@ import {
   BookOpen,
   Gamepad2,
   Coffee,
+  Sparkles,
+  Zap,
+  Rocket,
 } from "lucide-react";
 
 const skills = [
   {
     category: "Development",
+    icon: Code,
+    gradient: "from-violet-500 to-purple-600",
     items: [
       { name: "HTML & CSS", level: 70, icon: Code },
       { name: "JavaScript", level: 55, icon: Globe },
@@ -38,6 +43,8 @@ const skills = [
   },
   {
     category: "Design",
+    icon: Palette,
+    gradient: "from-pink-500 to-rose-600",
     items: [
       { name: "Figma", level: 60, icon: Palette },
       { name: "Photoshop", level: 55, icon: Camera },
@@ -46,6 +53,8 @@ const skills = [
   },
   {
     category: "Other",
+    icon: Sparkles,
+    gradient: "from-cyan-500 to-blue-600",
     items: [
       { name: "Video Editing", level: 50, icon: Video },
       { name: "Photography", level: 55, icon: Camera },
@@ -62,6 +71,7 @@ const projects = [
     description: "A clean, minimalist blog built to share thoughts on technology and design.",
     tags: ["HTML", "CSS", "JavaScript"],
     featured: true,
+    gradient: "from-violet-600 to-indigo-600",
   },
   {
     id: "weather",
@@ -69,6 +79,7 @@ const projects = [
     description: "A simple weather application that fetches data from a public API.",
     tags: ["React", "API", "CSS"],
     featured: false,
+    gradient: "from-cyan-500 to-blue-500",
   },
   {
     id: "portfolio-design",
@@ -76,6 +87,7 @@ const projects = [
     description: "UI/UX design project showcasing brand identity concepts.",
     tags: ["Figma", "UI Design"],
     featured: true,
+    gradient: "from-pink-500 to-rose-500",
   },
   {
     id: "task-manager",
@@ -83,6 +95,7 @@ const projects = [
     description: "A basic todo application with local storage persistence.",
     tags: ["JavaScript", "HTML", "CSS"],
     featured: false,
+    gradient: "from-orange-500 to-amber-500",
   },
   {
     id: "gallery",
@@ -90,6 +103,7 @@ const projects = [
     description: "Responsive image gallery with lightbox functionality.",
     tags: ["CSS Grid", "JavaScript"],
     featured: false,
+    gradient: "from-emerald-500 to-teal-500",
   },
   {
     id: "landing",
@@ -97,16 +111,17 @@ const projects = [
     description: "Modern landing page design for a fictional startup.",
     tags: ["HTML", "CSS", "Figma"],
     featured: true,
+    gradient: "from-purple-600 to-pink-600",
   },
 ];
 
 const interests = [
-  { name: "Reading", icon: BookOpen },
-  { name: "Gaming", icon: Gamepad2 },
-  { name: "Photography", icon: Camera },
-  { name: "Music", icon: Music },
-  { name: "Coffee", icon: Coffee },
-  { name: "Learning", icon: Code },
+  { name: "Reading", icon: BookOpen, color: "text-violet-500" },
+  { name: "Gaming", icon: Gamepad2, color: "text-pink-500" },
+  { name: "Photography", icon: Camera, color: "text-cyan-500" },
+  { name: "Music", icon: Music, color: "text-orange-500" },
+  { name: "Coffee", icon: Coffee, color: "text-amber-500" },
+  { name: "Learning", icon: Code, color: "text-emerald-500" },
 ];
 
 function scrollToSection(id: string) {
@@ -120,15 +135,26 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function FloatingOrbs() {
+  return (
+    <>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-violet-500/30 rounded-full blur-3xl animate-float" />
+      <div className="absolute top-40 right-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-float-delayed" />
+      <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-500/25 rounded-full blur-3xl animate-pulse-glow" />
+      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-float" />
+    </>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
           <Button
             variant="ghost"
             onClick={() => scrollToTop()}
-            className="font-serif text-xl font-semibold tracking-tight px-0"
+            className="font-serif text-xl font-bold tracking-tight px-0 gradient-text"
             data-testid="button-logo"
           >
             Portfolio
@@ -172,43 +198,47 @@ export default function Home() {
       </nav>
 
       <main>
-        <section className="min-h-screen flex items-center pt-20" id="hero">
-          <div className="max-w-7xl mx-auto px-6 py-20 w-full">
+        <section className="min-h-screen flex items-center pt-20 relative overflow-hidden" id="hero">
+          <FloatingOrbs />
+          <div className="max-w-7xl mx-auto px-6 py-20 w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-              <div className="lg:col-span-2 space-y-8">
+              <div className="lg:col-span-3 space-y-8">
                 <div className="space-y-4">
-                  <p 
-                    className="text-muted-foreground font-medium tracking-wide uppercase text-sm"
-                    data-testid="text-greeting"
-                  >
-                    Hello, I'm
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <Badge className="bg-gradient-to-r from-violet-600 to-cyan-500 text-white border-0 px-4 py-1.5">
+                      <Sparkles className="w-3 h-3 mr-1" />
+                      Available for hire
+                    </Badge>
+                  </div>
                   <h1 
-                    className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+                    className="font-serif text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight"
                     data-testid="text-name"
                   >
-                    Alex Chen
+                    <span className="gradient-text">Alex Chen</span>
                   </h1>
                   <p 
-                    className="text-2xl md:text-3xl text-muted-foreground font-light"
+                    className="text-2xl md:text-4xl font-light text-foreground/80"
                     data-testid="text-title"
                   >
-                    Creative Student
+                    Creative <span className="text-violet-500 font-medium">Developer</span> & <span className="text-cyan-500 font-medium">Designer</span>
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3" data-testid="badges-roles">
-                  <Badge variant="secondary" className="px-3 py-1.5 text-sm">
+                  <Badge variant="outline" className="px-4 py-2 text-sm border-violet-500/50 bg-violet-500/10">
+                    <Zap className="w-3 h-3 mr-1 text-violet-500" />
                     Developer
                   </Badge>
-                  <Badge variant="secondary" className="px-3 py-1.5 text-sm">
+                  <Badge variant="outline" className="px-4 py-2 text-sm border-pink-500/50 bg-pink-500/10">
+                    <Palette className="w-3 h-3 mr-1 text-pink-500" />
                     Designer
                   </Badge>
-                  <Badge variant="secondary" className="px-3 py-1.5 text-sm">
+                  <Badge variant="outline" className="px-4 py-2 text-sm border-cyan-500/50 bg-cyan-500/10">
+                    <Rocket className="w-3 h-3 mr-1 text-cyan-500" />
                     Creator
                   </Badge>
                 </div>
                 <p 
-                  className="text-muted-foreground leading-relaxed max-w-md text-lg"
+                  className="text-muted-foreground leading-relaxed max-w-xl text-lg"
                   data-testid="text-hero-description"
                 >
                   A curious student exploring the intersection of technology and creativity. 
@@ -217,13 +247,16 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4">
                   <Button
                     onClick={() => scrollToSection("projects")}
+                    className="bg-gradient-to-r from-violet-600 to-cyan-500 text-white border-0 shadow-lg glow-purple px-8"
                     data-testid="button-view-projects"
                   >
+                    <Sparkles className="w-4 h-4 mr-2" />
                     View Projects
                   </Button>
                   <Button
                     variant="outline"
                     onClick={() => scrollToSection("contact")}
+                    className="border-2"
                     data-testid="button-get-in-touch"
                   >
                     Get in Touch
@@ -239,29 +272,33 @@ export default function Home() {
                   <span className="text-sm">Scroll to explore</span>
                 </Button>
               </div>
-              <div className="lg:col-span-3 flex justify-center lg:justify-end">
+              <div className="lg:col-span-2 flex justify-center lg:justify-end">
                 <div className="relative" data-testid="hero-portrait">
-                  <div className="w-72 h-72 md:w-96 md:h-96 rounded-3xl bg-gradient-to-br from-primary/20 via-accent/30 to-secondary/20 flex items-center justify-center overflow-hidden">
-                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-card border border-card-border flex items-center justify-center">
+                  <div className="w-72 h-72 md:w-96 md:h-96 rounded-3xl bg-gradient-to-br from-violet-600 via-cyan-500 to-pink-500 p-1 animate-gradient glow-purple">
+                    <div className="w-full h-full rounded-3xl bg-card flex items-center justify-center">
                       <User className="w-32 h-32 text-muted-foreground/30" />
                     </div>
                   </div>
-                  <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary/10 -z-10" />
-                  <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-accent/30 -z-10" />
+                  <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 glow-cyan animate-float-delayed -z-10" />
+                  <div className="absolute -top-6 -left-6 w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 glow-pink animate-float -z-10" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-card/50" id="about">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-24 relative overflow-hidden" id="about">
+          <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 via-transparent to-cyan-500/5" />
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-violet-600 to-pink-500 text-white border-0 mb-4">
+                About Me
+              </Badge>
               <h2 
-                className="font-serif text-4xl md:text-5xl font-bold mb-4"
+                className="font-serif text-4xl md:text-6xl font-bold mb-4"
                 data-testid="text-section-about"
               >
-                About Me
+                <span className="gradient-text">Who I Am</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 A glimpse into who I am and what drives me
@@ -269,67 +306,71 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div className="space-y-6">
-                <p className="text-lg leading-relaxed text-foreground/90" data-testid="text-about-bio-1">
-                  I'm a second-year university student pursuing a degree in Computer Science. 
-                  My journey into technology started with curiosity about how websites work, 
-                  and it has since grown into a passion for creating digital experiences.
-                </p>
-                <p className="text-lg leading-relaxed text-foreground/90" data-testid="text-about-bio-2">
-                  While I'm still learning and growing, I believe that having basic knowledge 
-                  across various disciplines helps me approach problems from different angles. 
-                  I'm particularly interested in the space where design meets development.
-                </p>
-                <p className="text-lg leading-relaxed text-foreground/90" data-testid="text-about-bio-3">
-                  When I'm not coding or designing, you can find me experimenting with 
-                  photography, learning a new song on guitar, or diving into a good book 
-                  about technology and innovation.
-                </p>
+                <Card className="p-8 glass border-white/10 dark:border-white/5">
+                  <p className="text-lg leading-relaxed text-foreground/90" data-testid="text-about-bio-1">
+                    I'm a second-year university student pursuing a degree in Computer Science. 
+                    My journey into technology started with curiosity about how websites work, 
+                    and it has since grown into a passion for creating digital experiences.
+                  </p>
+                </Card>
+                <Card className="p-8 glass border-white/10 dark:border-white/5">
+                  <p className="text-lg leading-relaxed text-foreground/90" data-testid="text-about-bio-2">
+                    While I'm still learning and growing, I believe that having basic knowledge 
+                    across various disciplines helps me approach problems from different angles. 
+                    I'm particularly interested in the space where design meets development.
+                  </p>
+                </Card>
                 <div className="pt-4">
-                  <h3 className="font-serif text-xl font-semibold mb-4" data-testid="text-education-title">
+                  <h3 className="font-serif text-xl font-semibold mb-6 flex items-center gap-2" data-testid="text-education-title">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 flex items-center justify-center">
+                      <BookOpen className="w-4 h-4 text-white" />
+                    </div>
                     Education
                   </h3>
-                  <div className="space-y-3" data-testid="list-education">
-                    <div className="flex items-start gap-4">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium" data-testid="text-education-degree">B.Sc. Computer Science</p>
-                        <p className="text-muted-foreground text-sm">State University - 2023 - Present</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <div className="w-2 h-2 rounded-full bg-muted-foreground mt-2.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium" data-testid="text-education-highschool">High School Diploma</p>
-                        <p className="text-muted-foreground text-sm">Central High School - 2019 - 2023</p>
-                      </div>
-                    </div>
+                  <div className="space-y-4" data-testid="list-education">
+                    <Card className="p-4 glass border-white/10 dark:border-white/5 border-l-4 border-l-violet-500">
+                      <p className="font-medium" data-testid="text-education-degree">B.Sc. Computer Science</p>
+                      <p className="text-muted-foreground text-sm">State University - 2023 - Present</p>
+                    </Card>
+                    <Card className="p-4 glass border-white/10 dark:border-white/5 border-l-4 border-l-cyan-500">
+                      <p className="font-medium" data-testid="text-education-highschool">High School Diploma</p>
+                      <p className="text-muted-foreground text-sm">Central High School - 2019 - 2023</p>
+                    </Card>
                   </div>
                 </div>
               </div>
               <div className="space-y-6">
-                <h3 className="font-serif text-xl font-semibold" data-testid="text-interests-title">
+                <h3 className="font-serif text-xl font-semibold flex items-center gap-2" data-testid="text-interests-title">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-pink-500 to-orange-500 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-white" />
+                  </div>
                   Interests & Hobbies
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4" data-testid="grid-interests">
                   {interests.map((interest) => (
                     <Card
                       key={interest.name}
-                      className="p-4 flex flex-col items-center gap-3 hover-elevate overflow-visible"
+                      className="p-6 flex flex-col items-center gap-3 hover-elevate overflow-visible glass border-white/10 dark:border-white/5 group transition-all duration-300"
                       data-testid={`card-interest-${interest.name.toLowerCase()}`}
                     >
-                      <interest.icon className="w-8 h-8 text-primary" />
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                        <interest.icon className={`w-6 h-6 ${interest.color}`} />
+                      </div>
                       <span className="text-sm font-medium">{interest.name}</span>
                     </Card>
                   ))}
                 </div>
-                <Card className="p-6 mt-6" data-testid="card-currently-learning">
-                  <h4 className="font-semibold mb-3">Currently Learning</h4>
+                <Card className="p-6 mt-6 bg-gradient-to-r from-violet-600/10 via-cyan-500/10 to-pink-500/10 border-white/10 dark:border-white/5" data-testid="card-currently-learning">
+                  <h4 className="font-semibold mb-4 flex items-center gap-2">
+                    <Rocket className="w-4 h-4 text-violet-500" />
+                    Currently Learning
+                  </h4>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline">TypeScript</Badge>
-                    <Badge variant="outline">React Native</Badge>
-                    <Badge variant="outline">Node.js</Badge>
-                    <Badge variant="outline">UI/UX Design</Badge>
-                    <Badge variant="outline">Data Structures</Badge>
+                    <Badge className="bg-violet-500/20 text-violet-600 dark:text-violet-400 border-violet-500/30">TypeScript</Badge>
+                    <Badge className="bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border-cyan-500/30">React Native</Badge>
+                    <Badge className="bg-pink-500/20 text-pink-600 dark:text-pink-400 border-pink-500/30">Node.js</Badge>
+                    <Badge className="bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/30">UI/UX Design</Badge>
+                    <Badge className="bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30">Data Structures</Badge>
                   </div>
                 </Card>
               </div>
@@ -337,44 +378,56 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20" id="skills">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-24 relative overflow-hidden" id="skills">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-0 mb-4">
+                Skills
+              </Badge>
               <h2 
-                className="font-serif text-4xl md:text-5xl font-bold mb-4"
+                className="font-serif text-4xl md:text-6xl font-bold mb-4"
                 data-testid="text-section-skills"
               >
-                Skills & Abilities
+                <span className="gradient-text">What I Do</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 A diverse set of skills I'm developing across different domains
               </p>
             </div>
-            <div className="space-y-12">
+            <div className="space-y-16">
               {skills.map((category) => (
                 <div key={category.category} data-testid={`skills-category-${category.category.toLowerCase()}`}>
-                  <h3 className="font-serif text-2xl font-semibold mb-6" data-testid={`text-category-${category.category.toLowerCase()}`}>
-                    {category.category}
-                  </h3>
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.gradient} flex items-center justify-center shadow-lg`}>
+                      <category.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-serif text-2xl font-semibold" data-testid={`text-category-${category.category.toLowerCase()}`}>
+                      {category.category}
+                    </h3>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {category.items.map((skill) => (
                       <Card
                         key={skill.name}
-                        className="p-6 hover-elevate transition-transform overflow-visible"
+                        className="p-6 hover-elevate transition-all duration-300 overflow-visible glass border-white/10 dark:border-white/5 group"
                         data-testid={`card-skill-${skill.name.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         <div className="flex items-start justify-between gap-2 mb-4">
-                          <skill.icon className="w-8 h-8 text-primary" />
-                          <span className="text-sm text-muted-foreground font-medium" data-testid={`text-skill-level-${skill.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                            <skill.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <span className="text-sm font-bold text-muted-foreground" data-testid={`text-skill-level-${skill.name.toLowerCase().replace(/\s+/g, "-")}`}>
                             {skill.level}%
                           </span>
                         </div>
                         <h4 className="font-semibold mb-3" data-testid={`text-skill-name-${skill.name.toLowerCase().replace(/\s+/g, "-")}`}>
                           {skill.name}
                         </h4>
-                        <div className="w-full bg-muted rounded-full h-2">
+                        <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
                           <div
-                            className="bg-primary h-2 rounded-full transition-all duration-700"
+                            className={`bg-gradient-to-r ${category.gradient} h-2.5 rounded-full transition-all duration-700`}
                             style={{ width: `${skill.level}%` }}
                           />
                         </div>
@@ -387,14 +440,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20 bg-card/50" id="projects">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-24 relative overflow-hidden" id="projects">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/5 to-transparent" />
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-pink-500 to-orange-500 text-white border-0 mb-4">
+                Projects
+              </Badge>
               <h2 
-                className="font-serif text-4xl md:text-5xl font-bold mb-4"
+                className="font-serif text-4xl md:text-6xl font-bold mb-4"
                 data-testid="text-section-projects"
               >
-                Projects
+                <span className="gradient-text">My Work</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 A collection of projects I've worked on while learning
@@ -404,26 +461,26 @@ export default function Home() {
               {projects.map((project) => (
                 <Card
                   key={project.id}
-                  className="overflow-visible hover-elevate transition-transform"
+                  className="overflow-visible hover-elevate transition-all duration-300 glass border-white/10 dark:border-white/5 group"
                   data-testid={`card-project-${project.id}`}
                 >
-                  <div className="aspect-video bg-muted flex items-center justify-center rounded-t-md">
-                    <FileText className="w-12 h-12 text-muted-foreground/30" />
+                  <div className={`aspect-video bg-gradient-to-br ${project.gradient} flex items-center justify-center rounded-t-lg relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                    <FileText className="w-16 h-16 text-white/50 group-hover:scale-110 transition-transform" />
+                    {project.featured && (
+                      <Badge className="absolute top-3 right-3 bg-white/20 backdrop-blur-md text-white border-0">
+                        <Sparkles className="w-3 h-3 mr-1" />
+                        Featured
+                      </Badge>
+                    )}
                   </div>
                   <div className="p-6">
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <h3 
-                        className="font-serif text-xl font-semibold"
-                        data-testid={`text-project-title-${project.id}`}
-                      >
-                        {project.title}
-                      </h3>
-                      {project.featured && (
-                        <Badge variant="secondary" className="flex-shrink-0">
-                          Featured
-                        </Badge>
-                      )}
-                    </div>
+                    <h3 
+                      className="font-serif text-xl font-semibold mb-2"
+                      data-testid={`text-project-title-${project.id}`}
+                    >
+                      {project.title}
+                    </h3>
                     <p 
                       className="text-muted-foreground text-sm mb-4 leading-relaxed"
                       data-testid={`text-project-description-${project.id}`}
@@ -432,7 +489,7 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4" data-testid={`tags-project-${project.id}`}>
                       {project.tags.map((tag) => (
-                        <Badge key={tag} variant="outline" className="text-xs">
+                        <Badge key={tag} variant="outline" className="text-xs border-primary/30 bg-primary/5">
                           {tag}
                         </Badge>
                       ))}
@@ -440,10 +497,10 @@ export default function Home() {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="gap-2"
+                      className="gap-2 group/btn"
                       data-testid={`button-view-project-${project.id}`}
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
                       View Project
                     </Button>
                   </div>
@@ -453,28 +510,34 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20" id="contact">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+        <section className="py-24 relative overflow-hidden" id="contact">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-violet-500/5" />
+          <div className="absolute top-20 left-1/4 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-float" />
+          <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <Badge className="bg-gradient-to-r from-violet-600 to-cyan-500 text-white border-0 mb-6">
+              Get in Touch
+            </Badge>
             <h2 
-              className="font-serif text-4xl md:text-5xl font-bold mb-4"
+              className="font-serif text-4xl md:text-6xl font-bold mb-4"
               data-testid="text-section-contact"
             >
-              Let's Connect
+              <span className="gradient-text">Let's Connect</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            <p className="text-muted-foreground text-lg mb-10">
               I'm always open to new opportunities, collaborations, or just a friendly chat
             </p>
             <a
               href="mailto:hello@alexchen.dev"
-              className="inline-block font-serif text-2xl md:text-3xl font-medium text-primary hover:underline underline-offset-8 decoration-2 mb-12"
+              className="inline-block font-serif text-3xl md:text-4xl font-bold gradient-text hover:opacity-80 transition-opacity mb-12"
               data-testid="link-email"
             >
               hello@alexchen.dev
             </a>
             <div className="flex items-center justify-center gap-4 mb-8" data-testid="social-links">
               <Button
-                variant="outline"
                 size="icon"
+                className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-600 to-violet-800 text-white border-0 glow-purple"
                 asChild
                 data-testid="button-github"
               >
@@ -484,12 +547,12 @@ export default function Home() {
                   rel="noopener noreferrer"
                   aria-label="GitHub"
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-6 h-6" />
                 </a>
               </Button>
               <Button
-                variant="outline"
                 size="icon"
+                className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white border-0 glow-cyan"
                 asChild
                 data-testid="button-linkedin"
               >
@@ -499,12 +562,12 @@ export default function Home() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-6 h-6" />
                 </a>
               </Button>
               <Button
-                variant="outline"
                 size="icon"
+                className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 text-white border-0 glow-pink"
                 asChild
                 data-testid="button-twitter"
               >
@@ -514,12 +577,12 @@ export default function Home() {
                   rel="noopener noreferrer"
                   aria-label="Twitter"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <Twitter className="w-6 h-6" />
                 </a>
               </Button>
               <Button
-                variant="outline"
                 size="icon"
+                className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 text-white border-0"
                 asChild
                 data-testid="button-mail"
               >
@@ -527,22 +590,24 @@ export default function Home() {
                   href="mailto:hello@alexchen.dev"
                   aria-label="Email"
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-6 h-6" />
                 </a>
               </Button>
             </div>
-            <Badge variant="outline" className="px-4 py-2" data-testid="badge-availability">
+            <Badge className="px-6 py-3 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/30" data-testid="badge-availability">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse inline-block" />
               Open to opportunities
             </Badge>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-border py-8" data-testid="footer">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="border-t border-border/50 py-12 relative" data-testid="footer">
+        <div className="absolute inset-0 bg-gradient-to-t from-violet-500/5 to-transparent" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-              © {new Date().getFullYear()} Alex Chen. All rights reserved.
+              © {new Date().getFullYear()} <span className="gradient-text font-semibold">Alex Chen</span>. All rights reserved.
             </p>
             <div className="flex items-center gap-2 flex-wrap justify-center">
               <Button
@@ -571,10 +636,8 @@ export default function Home() {
               </Button>
             </div>
             <Button
-              variant="ghost"
-              size="sm"
               onClick={() => scrollToTop()}
-              className="gap-2"
+              className="gap-2 bg-gradient-to-r from-violet-600 to-cyan-500 text-white border-0"
               data-testid="button-back-to-top"
             >
               <ArrowUp className="w-4 h-4" />

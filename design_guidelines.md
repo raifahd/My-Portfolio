@@ -1,120 +1,123 @@
-# Portfolio Design Guidelines
+# Vibrant Student Portfolio Design Guidelines
 
 ## Design Approach
-**Reference-Based:** Drawing from modern portfolio platforms (Dribbble, Behance) combined with Linear's typography clarity and Notion's approachable organization. Creating a distinctive layout that breaks from traditional hero-centered portfolios.
+**Reference-Based:** Drawing from Stripe's gradient mastery, Apple's bold product pages, and Vercel's modern developer aesthetic. Creating an energetic, youth-forward portfolio with saturated colors, glowing effects, and dynamic visual elements that command attention.
+
+## Color Palette Architecture
+- **Primary Gradient:** Purple to Blue (from-purple-600 via-blue-600 to-cyan-500)
+- **Accent Gradients:** Pink to Orange (from-pink-500 to-orange-400), Cyan to Blue (from-cyan-400 to-blue-500)
+- **Glow Effects:** Purple (shadow-purple-500/50), Blue (shadow-blue-500/50), Pink (shadow-pink-500/50)
+- **Glass Morphism:** backdrop-blur-xl with bg-white/10 or bg-black/20, border with white/20
+- **Text on Gradients:** White (text-white) with drop shadows for readability
 
 ## Typography System
-- **Primary Font:** Inter or DM Sans (Google Fonts) - clean, modern sans-serif
-- **Display Font:** Space Grotesk or Outfit for large headings - distinctive personality
+- **Primary Font:** Inter via Google Fonts - versatile, modern
+- **Display Font:** Space Grotesk - bold personality for headings
 - **Hierarchy:**
-  - Hero name: text-6xl to text-7xl (display font, font-bold)
-  - Section headings: text-4xl to text-5xl (display font, font-semibold)
-  - Subsections: text-2xl to text-3xl (primary font, font-medium)
-  - Body text: text-base to text-lg (primary font, font-normal, leading-relaxed)
-  - Supporting text: text-sm (font-normal, slight transparency)
+  - Hero name: text-7xl to text-8xl (display font, font-extrabold, with gradient text fill)
+  - Section headings: text-5xl to text-6xl (display font, font-bold)
+  - Subsections: text-3xl (primary font, font-semibold)
+  - Body text: text-lg (primary font, font-normal, leading-relaxed)
+  - Tags/labels: text-sm (font-semibold, uppercase tracking-wide)
 
 ## Layout System
-**Spacing Primitives:** Tailwind units of 4, 6, 8, 12, 16, 20 (e.g., p-4, gap-8, mb-12, py-20)
+**Spacing Primitives:** Tailwind units of 4, 8, 12, 16, 24 (p-8, gap-12, mb-16, py-24)
 
 **Container Strategy:**
 - Main container: max-w-7xl mx-auto px-6
-- Content sections: py-20 (desktop), py-12 (mobile)
-- Grid gaps: gap-6 to gap-8
+- Content sections: py-24 (desktop), py-16 (mobile)
+- Grid gaps: gap-8 to gap-12
 
 ## Page Structure & Components
 
-### Hero Section (Alternative Layout)
-Split-screen asymmetric layout breaking traditional centered hero:
-- Left 40%: Large display typography with name, title/tagline, and 2-3 word descriptors of skill areas
-- Right 60%: Professional photo with subtle gradient overlay (NOT full-bleed)
-- Height: min-h-screen with content vertically centered
-- CTA buttons: "View Projects" (primary) + "Download Resume" (secondary) positioned at bottom-left
-- Buttons with backdrop blur (backdrop-blur-md bg-opacity-20)
+### Hero Section
+Full-screen immersive experience with layered visual complexity:
+- Animated gradient background (purple-to-blue) with subtle mesh pattern overlay
+- Large hero image: Creative portrait/action shot, positioned center-right with floating effect
+- Left-aligned content: Name in gradient text (text-8xl), animated tagline, 3-4 rotating skill descriptors with glow effects
+- Floating decorative elements: 3-4 blurred circles (absolute positioned, different sizes, blur-3xl, vibrant colors, slow floating animation)
+- CTAs at bottom-left: Two buttons with backdrop-blur-md bg-white/20 - "View Projects" (with glow effect) + "Get Resume"
+- Height: min-h-screen with content centered vertically
 
-**Image:** Professional headshot or creative portrait, subtle vignette treatment, positioned right with organic shape mask or rounded-3xl
+**Hero Image:** Dynamic portrait or creative workspace shot showing personality, positioned right 55%, with subtle glow/shadow effect
 
-### Skills Showcase
-Grid-based card system showing diverse competencies:
-- Desktop: 3-column grid (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
-- Each card: Icon at top (Heroicons), skill name (text-xl font-semibold), proficiency indicator (progress bar or pill badges), brief description
-- Card styling: Minimal borders, generous padding (p-6), subtle hover lift effect (translate-y-[-4px])
-- Group skills by category with subtle section dividers
+### Floating Navigation
+Sticky glass-morphism navbar:
+- backdrop-blur-xl bg-white/10, rounded-full (on scroll), shadow with glow
+- Logo left, nav links center, theme toggle right
+- Subtle hover glow on links
+
+### Skills Constellation
+Interactive skill visualization breaking traditional grids:
+- Bento-box style layout with varying card sizes (some span 2 columns, different heights)
+- Desktop: 4-column grid with intentional gaps, mobile: single column
+- Each skill card: Icon with gradient background circle, skill name, animated proficiency bar with gradient fill, micro description
+- Card styling: Glass effect (backdrop-blur-lg bg-white/5), border-white/10, rounded-3xl, p-8, hover state lifts with enhanced glow
+- Floating badge indicators for expertise level
 
 ### Projects Gallery
-Masonry-style or staggered grid (not uniform):
-- Alternating card sizes for visual interest
-- Each project card: Featured image placeholder, title (text-2xl), tech stack tags, short description (2-3 lines), "View Project" link
-- Cards: rounded-2xl, padding p-6
-- Image aspect ratios: Mix of 16:9, 4:3, and square for variety
-- Hover state: Subtle scale and shadow increase
+Staggered grid with visual drama:
+- Mixed card sizes: Large featured projects (2-column span), regular projects (1-column)
+- Each card: Full-bleed gradient-treated project image, gradient overlay on hover revealing details, project title (text-3xl), glowing tech stack tags, "Explore →" link with gradient underline
+- Card treatment: rounded-2xl, shadow-2xl with colored glow matching project theme
+- Hover: Scale(1.02) with intensified glow and revealed overlay content
+- 6 project placeholders minimum
 
-**Images:** 4-6 project screenshots/mockups, varied aspect ratios, placeholder indicates content type (web, design, code)
+**Project Images:** 6 vibrant screenshots/mockups with gradient overlays, varied aspect ratios (16:9, 4:3, square mix)
 
-### About Section
-Two-column layout (grid-cols-1 lg:grid-cols-2):
-- Left: Narrative bio (max-w-prose), educational background, current focus areas
-- Right: Interests/hobbies as icon cards (2x3 grid), personality highlights
-- Timeline for education/experience with minimal line connections
+### Experience Timeline
+Vertical timeline with glowing connectors:
+- Gradient line connecting experiences (left side on desktop)
+- Each entry: Year badge with gradient background, role/position (text-2xl), organization, description in glass-morphism card
+- Timeline dots: Glowing circles at connection points (w-4 h-4 with shadow glow)
+- Alternating card positions (left/right on desktop, single column mobile)
 
-### Contact Section
-Centered, focused layout:
-- Large heading (text-5xl): "Let's Connect"
-- Email as prominent clickable element (text-3xl, underline decoration)
-- Social links as icon row (GitHub, LinkedIn, Twitter) - large touch targets (w-12 h-12)
-- Secondary: "Open to opportunities" badge or availability status
-- Optional: Simple contact form with 3 fields (Name, Email, Message) in single column
+### About/Interests
+Two-column split (grid-cols-1 lg:grid-cols-2, gap-12):
+- Left: Bio narrative (max-w-prose) in glass card with gradient border
+- Right: Interest cards in 2x2 grid - each with gradient icon background, hobby name, mini description
+- Section background: Subtle gradient mesh
+
+### Contact Hub
+Centered, high-impact finale:
+- Large gradient heading: "Let's Create Together"
+- Email as glowing, interactive element (text-4xl) in glass button
+- Social icons row: Large circles (w-14 h-14) with gradient backgrounds and hover glow
+- Availability status badge: Floating pill with pulsing dot indicator
+- Background: Radial gradient burst effect
 
 ### Footer
-Minimal, single-row layout:
-- Left: © Year + Name
-- Center: Quick navigation links (About, Projects, Skills)
-- Right: Back to top link
-- Padding: py-8
+Glass-morphism strip:
+- Single row: Name/copyright, quick links, social icons
+- backdrop-blur-md bg-gradient-to-r from-purple-600/10 to-blue-600/10
+- Padding: py-12
 
 ## Component Library
 
-**Cards:**
-- Base: rounded-2xl, padding p-6 to p-8
-- Borders: Subtle, 1px solid with low opacity
-- Shadows: Minimal (shadow-sm) with hover enhancement (shadow-md)
+**Glass Cards:** backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8
+**Gradient Buttons:** bg-gradient-to-r from-purple-600 to-blue-600, rounded-full, px-8 py-4, shadow-lg with colored glow, font-semibold
+**Tags/Badges:** Gradient fills, rounded-full, px-4 py-2, text-sm font-bold uppercase, shadow glow
+**Icons:** Heroicons (solid style for vibrancy), sizes: w-6 to w-8, often in gradient circles
+**Glow Effects:** Liberal use of shadow-[color]-500/50 shadow-2xl for depth
 
-**Buttons:**
-- Primary: Larger size (px-6 py-3), rounded-full, font-semibold
-- Secondary: Border style (border-2), same sizing
-- Link style: Underline decoration on hover
-
-**Badges/Tags:**
-- Rounded-full, px-3 py-1, text-sm, font-medium
-- Used for skills, tech stack, status indicators
-
-**Icons:**
-- Library: Heroicons (outline style for consistency)
-- Sizes: w-6 h-6 for inline, w-8 h-8 for featured, w-12 h-12 for section headers
-
-## Visual Rhythm
-- Section spacing: Consistent py-20 between major sections
-- Element spacing: mb-12 between section title and content
-- Card grids: gap-8 for breathing room
-- Vertical rhythm maintained through consistent use of mb-6, mb-8, mb-12
+## Decorative Elements
+- Floating gradient orbs: 4-6 per section, blur-3xl, absolute positioned, subtle animation
+- Mesh gradients: Section backgrounds with noise texture
+- Animated gradient borders on hover states
+- Particle effects on scroll (subtle, performance-conscious)
 
 ## Animations
-Minimal, purposeful motion:
-- Scroll-triggered fade-ins for sections (opacity + translate)
-- Hover states: Subtle lift (translate) and shadow
-- Page load: Staggered reveal of hero elements
-- NO parallax, NO complex scroll animations
-
-## Accessibility
-- Focus states: Visible ring (ring-2) with offset
-- Skip to content link
-- Semantic HTML structure
-- ARIA labels for icon-only buttons
-- Sufficient text contrast (will be ensured with pale palette)
+Bold, noticeable motion:
+- Hero elements: Staggered fade-in with scale
+- Floating orbs: Slow translate animation loops
+- Cards: Hover lift (translate-y-[-8px]) with glow enhancement
+- Gradient text: Subtle shimmer effect
+- Scroll progress indicator: Gradient bar at top
+- Page transitions: Fade with slight scale
 
 ## Images Summary
-**Hero:** 1 professional portrait (right-aligned, organic shape or rounded)
-**Projects:** 4-6 project screenshots/mockups (varied sizes)
-**About:** Optional personal photo or workspace image
-**Skills:** Icon-based (no photos)
+**Hero:** 1 vibrant portrait/creative shot (center-right, floating effect with glow)
+**Projects:** 6 colorful project screenshots with gradient treatments
+**About:** Personal photo or creative workspace (within glass card)
 
-Total: 6-8 images for complete, polished portfolio
+Total: 8 high-energy, professionally treated images creating an unforgettable first impression.
